@@ -1,0 +1,17 @@
+name: deployer project 2
+on:
+    workflow_dispatch:
+    push:
+      branches:
+        - main
+      paths:
+        - projects/project_2/*.sh
+
+jobs:
+  2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: action affiche
+        run : ls projects/project_2/*.sh

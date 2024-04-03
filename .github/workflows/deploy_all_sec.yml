@@ -1,0 +1,27 @@
+name: deployer project 1
+on:
+    workflow_dispatch:
+    push:
+      branches:
+        - main
+      paths:
+        - projects/project_1/*.sh
+        - projects/project_2/*.sh
+
+jobs:
+  verif_project_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: action affiche
+        run : ls projects/project_1/*.sh
+
+  verif_project_2:
+    runs-on: ubuntu-latest
+    needs: verif_project_1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: action affiche
+        run : ls projects/project_2/*.sh
