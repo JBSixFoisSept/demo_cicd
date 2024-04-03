@@ -8,7 +8,7 @@ on:
         - projects/project_2/*.sh
 
 jobs:
-  2:
+  verif_project_2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

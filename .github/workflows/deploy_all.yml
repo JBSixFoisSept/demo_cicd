@@ -1,4 +1,4 @@
-name: deployer project 1
+name: deployer all
 on:
     workflow_dispatch:
     push:
