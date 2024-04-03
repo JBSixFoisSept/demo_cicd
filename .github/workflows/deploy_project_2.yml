@@ -14,4 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: action affiche
-        run : ls projects/project_2/*.sh
+        run : |
+          ls projects/project_2/*.sh
+          echo "========> test affiche git"
+          source ./projects/project_2/prog_2_2.sh

@@ -19,6 +19,9 @@ Et dans un job, tous les steps vont être lancés sussessivement.
 Dans un même workflow, il sera possible d'attendre la fin d'un job pour en déclencher un autre. 
 Mais cela devra être précisé dans la déclaration.
 
+## Mon 1er workflow
+Le workflow ci-dessous possède de 2 types de déclencheurs
 
+![cicd_2.png](docs/pictures/cicd_2.png)
 
 
