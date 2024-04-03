@@ -14,4 +14,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: action affiche
-        run : ls db/alter/*.sh
+        run : ls projects/project_1/*.sh
