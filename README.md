@@ -27,5 +27,9 @@ Il possède 1 job et utilise dans son 1er step une action pré-définie.
 
 ## Travailler avec des variabes
 
+![cicd_3.png](docs/pictures/cicd_3.png)
+
+## Creer des workflow réutilisables
+
 
 

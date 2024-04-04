@@ -1,0 +1,26 @@
+name: test_appel_out
+on:
+  workflow_call:
+    inputs:
+      RELEASE_NAME:
+        required: false
+        type: string
+    secrets:
+      MA_VAR_SECRET:
+        required: true
+
+jobs:
+  job_re_use:
+    runs-on: ubuntu-latest
+    if: inputs.RELEASE_NAME != ''
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: test variable
+        run : |
+          echo " event_name = ${{github.event_name}}"
+          echo " ref = ${{github.ref}}"
+          echo " ref_name = ${{github.ref_name}}"
+          echo " repository_owner = ${{github.repository_owner}}"
+          echo "RELEASE_NAME = ${{inputs.RELEASE_NAME}}"
+          echo "MA_VAR_SECRET = ${{inputs.MA_VAR_SECRET}}"

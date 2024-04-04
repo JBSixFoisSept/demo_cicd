@@ -1,0 +1,11 @@
+name: test_appel
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy_prod:
+    uses: ./.github/workflows/test.yml
+    with:
+      RELEASE_NAME: ${{ github.ref_name }}
+    secrets:
+      MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
