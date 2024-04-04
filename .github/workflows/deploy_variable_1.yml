@@ -1,0 +1,24 @@
+name: deployer variable
+on:
+    workflow_dispatch:
+env:
+  MA_VAR_ENV: valeur env
+  MA_VAR_VAR: ${{ vars.TEST_VAR}}
+  MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
+
+jobs:
+  afficher_var:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test affiche
+        run: |
+          echo " ===> appel env: $MA_VAR_ENV"
+          echo " ===> appel env precis: ${{ env.MA_VAR_ENV}}"
+          echo " ===> appel env: $MA_VAR_VAR"
+          echo " ===> appel vars: ${{ vars.TEST_VAR}}"
+          echo " ===> appel env: $MA_VAR_SECRET"
+          echo " ===> appel secret: ${{ secrets.TEST_SECRET}}
+          
+        
+      
+

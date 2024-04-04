@@ -21,7 +21,11 @@ Mais cela devra être précisé dans la déclaration.
 
 ## Mon 1er workflow
 Le workflow ci-dessous possède de 2 types de déclencheurs
+Il possède 1 job et utilise dans son 1er step une action pré-définie.
 
 ![cicd_2.png](docs/pictures/cicd_2.png)
+
+## Travailler avec des variabes
+
 
 
