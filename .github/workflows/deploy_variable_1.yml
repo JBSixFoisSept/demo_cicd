@@ -18,3 +18,4 @@ jobs:
           echo " ===> appel vars: ${{ vars.TEST_VAR}}"
           echo " ===> appel env: $MA_VAR_SECRET"
           echo " ===> appel secret: ${{ secrets.TEST_SECRET}}"
+          echo " ===> var github ${{ github.ref_name }}"
