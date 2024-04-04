@@ -1,10 +1,10 @@
-name: test_appel
+name: job appel
 on:
   workflow_dispatch:
 
 jobs:
   deploy_prod:
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/job_re_use.yml
     with:
       RELEASE_NAME: ${{ github.ref_name }}
     secrets:
