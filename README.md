@@ -31,5 +31,7 @@ Il possède 1 job et utilise dans son 1er step une action pré-définie.
 
 ## Creer des workflow réutilisables
 
+![cicd_4.png](docs/pictures/cicd_4.png)
+
 
 

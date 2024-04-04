@@ -9,3 +9,7 @@ jobs:
       RELEASE_NAME: ${{ github.ref_name }}
     secrets:
       MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
+
+
+
+
