@@ -23,4 +23,4 @@ jobs:
           echo " ref_name = ${{github.ref_name}}"
           echo " repository_owner = ${{github.repository_owner}}"
           echo "RELEASE_NAME = ${{inputs.RELEASE_NAME}}"
-          echo "MA_VAR_SECRET = ${{inputs.MA_VAR_SECRET}}"
+          echo "MA_VAR_SECRET = ${{secrets.MA_VAR_SECRET}}"
