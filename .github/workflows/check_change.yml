@@ -1,0 +1,45 @@
+name: deployer all
+on:
+#    workflow_dispatch:
+    push:
+      branches:
+        - main
+      paths:
+        - projects/project_1/trigger.txt
+        - projects/project_2/trigger.txt
+
+jobs:
+  check_path:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Filter changes
+        id: filter1
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            project_1:
+              - 'projects/project_1/**'
+            project_2:
+              - 'projects/project_2/**'
+
+
+  lance_job_1:
+    needs: check_path
+    if: needs.check_path.outputs.project_1 == 'true'
+    uses: ./.github/workflows/job_re_use.yml
+    with:
+      RELEASE_NAME: ${{ github.ref_name }}
+    secrets:
+      MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
+
+  lance_job_2:
+    needs: check_path
+    if: needs.check_path.outputs.project_2 == 'true'
+    uses: ./.github/workflows/job_re_use.yml
+    with:
+      RELEASE_NAME: ${{ github.ref_name }}
+    secrets:
+      MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
+
