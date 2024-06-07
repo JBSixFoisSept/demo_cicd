@@ -23,7 +23,7 @@ jobs:
               - 'projects/project_1/**'
       - name: action affiche
         if: steps.filter1.outputs.project_1 == 'true'
-        uses: {owner}/{repo}/.github/workflows/job_re_use.yml
+        uses: ${{ github.repository }}/.github/workflows/job_re_use.yml
         with:
           RELEASE_NAME: ${{ github.ref_name }}
           MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
