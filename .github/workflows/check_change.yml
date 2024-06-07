@@ -11,11 +11,14 @@ on:
 jobs:
   check_path:
     runs-on: ubuntu-latest
+    outputs:
+      project_1: ${{ steps.filter.outputs.project_1 }}
+      project_2: ${{ steps.filter.outputs.project_2 }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Filter changes
-        id: filter1
+        id: filter
         uses: dorny/paths-filter@v3
         with:
           filters: |
