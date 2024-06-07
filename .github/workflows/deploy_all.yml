@@ -23,7 +23,7 @@ jobs:
               - 'projects/project_1/**'
       - name: action affiche
         if: steps.filter1.outputs.project_1 == 'true'
-        run : ls projects/project_1/*.sh
+        uses: ./.github/workflows/job_re_use.yml
 
   verif_project_2:
     runs-on: ubuntu-latest
@@ -40,4 +40,4 @@ jobs:
               - 'projects/project_2/**'
       - name: action affiche
         if: steps.filter2.outputs.project_2 == 'true'
-        run : ls projects/project_2/*.sh
+        uses: ./.github/workflows/job_re_use.yml
