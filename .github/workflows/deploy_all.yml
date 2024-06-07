@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Filter changes
         id: filter1
-        uses: dorny/paths-filter@v
+        uses: dorny/paths-filter@v3
         with:
           filters: |
             project_1:
