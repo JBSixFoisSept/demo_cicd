@@ -23,7 +23,7 @@ jobs:
               - 'projects/project_1/**'
       - name: action affiche
         if: steps.filter1.outputs.project_1 == 'true'
-        uses: JBSixFoisSept/demo_cicd/.github/workflows/job_re_use.yml
+        uses: JBSixFoisSept/demo_cicd/.github/workflows/job_re_use.yml@main
         with:
           RELEASE_NAME: ${{ github.ref_name }}
           MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
