@@ -5,8 +5,8 @@ on:
       branches:
         - main
       paths:
-        - projects/project_1/*.sh
-        - projects/project_2/*.sh
+        - projects/project_1/**
+        - projects/project_2/**
 
 jobs:
   verif_project_1:
@@ -14,7 +14,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Filter changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            directoryChanges:
+              - 'projects/project_1/**'
       - name: action affiche
+        if: steps.filter.outputs.directoryChanges == 'true'
         run : ls projects/project_1/*.sh
 
   verif_project_2:
@@ -22,5 +30,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Filter changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            directoryChanges:
+              - 'projects/project_2/**'
       - name: action affiche
+        if: steps.filter.outputs.directoryChanges == 'true'
         run : ls projects/project_2/*.sh
