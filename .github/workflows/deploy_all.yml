@@ -1,6 +1,6 @@
 name: deployer all
 on:
-    workflow_dispatch:
+#    workflow_dispatch:
     push:
       branches:
         - main
@@ -15,14 +15,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Filter changes
-        id: filter
+        id: filter1
         uses: dorny/paths-filter@v3
         with:
           filters: |
-            directoryChanges:
+            project_1:
               - 'projects/project_1/**'
       - name: action affiche
-        if: steps.filter.outputs.directoryChanges == 'true'
+        if: steps.filter.outputs.project_1 == 'true'
         run : ls projects/project_1/*.sh
 
   verif_project_2:
@@ -31,12 +31,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Filter changes
-        id: filter
+        id: filter2
         uses: dorny/paths-filter@v3
         with:
           filters: |
-            directoryChanges:
+            project_2:
               - 'projects/project_2/**'
       - name: action affiche
-        if: steps.filter.outputs.directoryChanges == 'true'
+        if: steps.filter.outputs.project_2 == 'true'
         run : ls projects/project_2/*.sh
