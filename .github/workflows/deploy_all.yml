@@ -40,4 +40,8 @@ jobs:
               - 'projects/project_2/**'
       - name: action affiche
         if: steps.filter2.outputs.project_2 == 'true'
-        uses: ./.github/workflows/job_re_use.yml
+        uses: owner/repo/.github/workflows/job_re_use.yml
+        with:
+          RELEASE_NAME: ${{ github.ref_name }}
+        secrets:
+          MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
