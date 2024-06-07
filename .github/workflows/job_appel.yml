@@ -3,7 +3,15 @@ on:
   workflow_dispatch:
 
 jobs:
+  deploy_uat:
+    uses: ./.github/workflows/job_re_use.yml
+    with:
+      RELEASE_NAME: ${{ github.ref_name }}
+    secrets:
+      MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
+
   deploy_prod:
+    needs: deploy_uat
     uses: ./.github/workflows/job_re_use.yml
     with:
       RELEASE_NAME: ${{ github.ref_name }}
