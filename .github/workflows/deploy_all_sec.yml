@@ -15,7 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: action affiche
-        run : ls projects/project_1/*.sh
+        run : |
+          ls projects/project_1/*.sh
+          echo ${{github.repository_owner}}
+          echo ${{ github.repository }}
+          echo ${{github.repository_owner}}/${{ github.repository }}/.github/workflows/job_re_use.yml
 
   verif_project_2:
     runs-on: ubuntu-latest
