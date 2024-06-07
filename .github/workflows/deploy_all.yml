@@ -22,7 +22,7 @@ jobs:
             project_1:
               - 'projects/project_1/**'
       - name: action affiche
-        if: steps.filter.outputs.project_1 == 'true'
+        if: steps.filter1.outputs.project_1 == 'true'
         run : ls projects/project_1/*.sh
 
   verif_project_2:
@@ -39,5 +39,5 @@ jobs:
             project_2:
               - 'projects/project_2/**'
       - name: action affiche
-        if: steps.filter.outputs.project_2 == 'true'
+        if: steps.filter2.outputs.project_2 == 'true'
         run : ls projects/project_2/*.sh
