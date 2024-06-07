@@ -24,6 +24,10 @@ jobs:
       - name: action affiche
         if: steps.filter1.outputs.project_1 == 'true'
         uses: ./.github/workflows/job_re_use.yml
+        with:
+          RELEASE_NAME: ${{ github.ref_name }}
+        secrets:
+          MA_VAR_SECRET: ${{ secrets.TEST_SECRET}}
 
   verif_project_2:
     runs-on: ubuntu-latest
@@ -40,7 +44,7 @@ jobs:
               - 'projects/project_2/**'
       - name: action affiche
         if: steps.filter2.outputs.project_2 == 'true'
-        uses: owner/repo/.github/workflows/job_re_use.yml
+        uses: ./.github/workflows/job_re_use.yml
         with:
           RELEASE_NAME: ${{ github.ref_name }}
         secrets:
